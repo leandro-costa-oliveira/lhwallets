@@ -72,7 +72,7 @@ export default function TabCreate(){
         <Form.Group>
             <Form.Label>Actions</Form.Label>
             <div className="">
-                <Button className="mr-2" variant="secondary" 
+                <Button className="me-2" variant="secondary" 
                     disabled={wallets.length <= 0} onClick={()=>{
                         try {
                             let secret = window.prompt("The Secret to Encrypt the File ! Write it Down, is the Only way to reverse the encryption !!!");
@@ -104,9 +104,18 @@ export default function TabCreate(){
                             console.log("Encrypt Fail:", E);
                         }
                     }}>Generate File</Button>
-                &nbsp;&nbsp;
 
-                <Button className="mr-2" variant="warning" onClick={()=>{
+                <Button variant="danger" className="me-2" 
+                    disabled={wallets.length <= 0} onClick={()=>{
+                    if(!window.confirm("!!! DANGER !!! You will download the Wallets in Plain Text. Your Money Can be stolen if you lose this file. Do at your own risk !"));
+
+                    var a = document.createElement('a');
+                    a.setAttribute('href', 'data:text/plain;charset=utf-8,'+ JSON.stringify({ name, wallets}, null, 4));
+                    a.setAttribute('download', "lhwallet"+ (new Date()).getTime() + ".json");
+                    a.click()
+                }}>Download as JSON</Button>
+
+                <Button className="me-2" variant="warning" onClick={()=>{
                     if(wallets.length > 0) {
                         if(!window.confirm("Restoring a wallet will replace the data in the form. Would you like to continue ?")) return;
                     }
@@ -124,19 +133,7 @@ export default function TabCreate(){
                     f.click();
                 }}>Restore from File</Button>
 
-                &nbsp;&nbsp;
-                <Button className="float-right" variant="danger" 
-                    disabled={wallets.length <= 0} onClick={()=>{
-                    if(!window.confirm("!!! DANGER !!! You will download the Wallets in Plain Text. Your Money Can be stolen if you lose this file. Do at your own risk !"));
-
-                    var a = document.createElement('a');
-                    a.setAttribute('href', 'data:text/plain;charset=utf-8,'+ JSON.stringify({ name, wallets}, null, 4));
-                    a.setAttribute('download', "lhwallet"+ (new Date()).getTime() + ".json");
-                    a.click()
-                }}>Download as JSON</Button>
-
-                &nbsp;&nbsp;
-                <Button className="float-right" variant="primary" onClick={()=>{
+                <Button className="float-end" variant="primary" onClick={()=>{
                     setShowModal(true);
                 }}>Add Wallet</Button>
             </div>

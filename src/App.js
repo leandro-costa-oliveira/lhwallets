@@ -17,7 +17,8 @@ function App() {
         </Card.Body>
 
         <Card.Footer>
-          <p className="small">Leandro Costa &copy; 2021</p>
+          <span className="small float-start">Leandro Costa &copy; 2021</span>
+          <span className="small float-end">Leandro Costa &copy; 2021</span>
         </Card.Footer>
       </Card>
     </Container>
