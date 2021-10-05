@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/lhwallets/static/js/main.d66a43d2.chunk.js",
-    "main.js.map": "/lhwallets/static/js/main.d66a43d2.chunk.js.map",
+    "main.js": "/lhwallets/static/js/main.b6b07f38.chunk.js",
+    "main.js.map": "/lhwallets/static/js/main.b6b07f38.chunk.js.map",
     "runtime-main.js": "/lhwallets/static/js/runtime-main.57a71f33.js",
     "runtime-main.js.map": "/lhwallets/static/js/runtime-main.57a71f33.js.map",
     "static/css/2.28bb0c3d.chunk.css": "/lhwallets/static/css/2.28bb0c3d.chunk.css",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.57a71f33.js",
     "static/css/2.28bb0c3d.chunk.css",
     "static/js/2.c7ac639b.chunk.js",
-    "static/js/main.d66a43d2.chunk.js"
+    "static/js/main.b6b07f38.chunk.js"
   ]
 }
