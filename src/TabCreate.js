@@ -4,7 +4,6 @@ import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import ModalAddWallet from './ModalAddWallet';
 import crypto from 'crypto';
-import { sensitiveHeaders } from 'http2';
 
 export default function TabCreate(){
     const [wallets, setWallets] = React.useState([]);
@@ -45,7 +44,7 @@ export default function TabCreate(){
 
         <Form.Group>
             <Form.Label>Actions</Form.Label>
-            <div className="d-flex">
+            <div className="">
                 <Button className="mr-2" variant="secondary" 
                     disabled={wallets.length <= 0} onClick={()=>{
                         let secret = window.prompt("The Secret to Encrypt the File ! Write it Down, is the Only way to reverse the encryption !!!");
@@ -57,17 +56,15 @@ export default function TabCreate(){
                         // https://www.section.io/engineering-education/data-encryption-and-decryption-in-node-js-using-crypto/
                         // https://attacomsian.com/blog/nodejs-encrypt-decrypt-data
                         const iv = crypto.randomBytes(16);
-                        const cipher = crypto.createCipheriv('aes-256-cbc', secret, iv);
-                        const encrypted = Buffer.concat([cipher.update(JSON.stringify({ name, wallets })), cipher.final()]);
 
                         if(secret.length < 32 ) {
                             if(!window.confirm(`"Your secret is too short [${secret.length}] ! Recomended Length is 32+. Would like to continue ?"`)) return;
-                            console.log("## SECRET:", secret);
-                            console.log("## IV    :", iv.toString("hex"));
+                            // Filling the secret to the minimum 32 size.
                             secret = iv.toString('hex').substring(0, 32-secret.length) + secret;
-                            console.log("NEW SECRET:", secret.length, secret);
-
                         }
+
+                        const cipher = crypto.createCipheriv('aes-256-cbc', secret, iv);
+                        const encrypted = Buffer.concat([cipher.update(JSON.stringify({ name, wallets })), cipher.final()]);
 
                         // https://stackoverflow.com/questions/28464449/how-to-save-json-data-locally-on-the-machine
                         var a = document.createElement('a');
@@ -76,7 +73,13 @@ export default function TabCreate(){
                         a.click()
                     }}>Generate File</Button>
                 &nbsp;&nbsp;
-                <Button className="mr-2" variant="primary" onClick={()=>{
+
+                <Button className="mr-2" variant="warning" onClick={()=>{
+                    
+                }}>Restore Wallets</Button>
+
+                &nbsp;&nbsp;
+                <Button className="float-right" variant="primary" onClick={()=>{
                     setShowModal(true);
                 }}>Add Wallet</Button>
             </div>
