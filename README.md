@@ -1,8 +1,5 @@
 # LH WALLETS
 
-This is a tool, inspired by my own need to a simple way to store my crypto wallets, in a 
-digital but secure maner. 
-
 This is a tool inspired by my own need to a simple way to store my crypto wallets, in a digital but secure manner.
 
 It's a simple web application, designed to encrypt / decrypt crypto wallets information. There you can generate a encrypted file with all your wallets recovery seeds, protected by aes-256-cbc cypher and store it digitally and safe.
