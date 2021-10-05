@@ -35,7 +35,7 @@ export default function TabCreate(){
             window.alert("Decrypt Fail:" + E);
             console.log("Decrypt Fail:", E);
         }
-    });
+    }, []);
 
     return <Form>
         <legend className="small">Create your Wallets Encrypted File</legend>
