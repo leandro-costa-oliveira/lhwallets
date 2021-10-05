@@ -1,11 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Tab from 'react-bootstrap/Tab';
-import Tabs from 'react-bootstrap/Tabs';
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 
 import TabCreate from './TabCreate';
-import TabRestore from './TabRestore';
 
 function App() {
   return (
@@ -16,15 +13,7 @@ function App() {
         </Card.Header>
         
         <Card.Body>
-        <Tabs defaultActiveKey="encrypt" id="uncontrolled-tab-example" className="mb-3">
-          <Tab eventKey="encrypt" title="Create">
-            <TabCreate />
-          </Tab>
-
-          <Tab eventKey="decrypt" title="Restore">
-            <TabRestore />
-          </Tab>
-        </Tabs>
+          <TabCreate />
         </Card.Body>
 
         <Card.Footer>
