@@ -18,7 +18,10 @@ function App() {
 
         <Card.Footer>
           <span className="small float-start">Leandro Costa &copy; 2021</span>
-          <span className="small float-end">Leandro Costa &copy; 2021</span>
+          <a href="https://github.com/lokidarkeden/lhwallets" 
+            target="_lhwallets_git" 
+            className="small float-end"
+          >View on Github</a>
         </Card.Footer>
       </Card>
     </Container>
