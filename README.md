@@ -13,4 +13,4 @@ PS.: Don't forget the password used to encrypt the file, there's no way to recov
 
 # Access the Tool Online
 
-You can access it on [GitHub](https://lokidarkeden.github.io/lhwallets/).
+You can access it on [GitHub](https://leandrocostaoliveira.github.io/lhwallets/).
